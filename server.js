@@ -22,6 +22,17 @@ app.use("/api/post", isLogedIn, routerPost);
 app.use("/api/auth", routerAuth)
 
 
+app.get("/", (req, res) => {
+    return res.status(200).sendFile(__dirname + "/view/home.html");
+})
+
+
+app.get("/loginFailure", (req, res) => {
+    return res.status(500).json({
+        success: false,
+        message: "Login Failed"
+    });
+})
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is listening on port ${process.env.PORT}`);

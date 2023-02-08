@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Social Media API | Yohanes Debebe</title>
+    <!-- <link rel="shortcut icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico"  type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" /> -->
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  
+<style>
+    * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family:sans-serif;
+    margin: 25px;
+    color: #222;
+    background-color: #f5f5f5;
+  }
+  
+  h1 {
+    font-weight: bold;
+    
+  }
+  
+  p {
+    max-width: 900px;
+  }
+  
+  form {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #87D37C;
+    display: inline-block;
+    width: 100%;
+    max-width: 340px;
+    border-radius: 5px;
+  }
+  
+  input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  
+  input[type=submit] {
+    font-size: 16px;
+    border-radius: 3px;
+    background-color: #E4F1FE;
+    border: 1px solid grey;
+    box-shadow: 2px 2px #999;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #FFFEC4;
+  }
+  
+  code {
+    font-family: monospace;
+    font-size: 1.2em;
+    background-color: #FFFEC4;
+    padding: 2px;
+  }
+</style>
+</head>
+
+  <body>
+  
+    <div class="container">
+      <h1>Authentication</h1>
+     <form action="/api/users" method="post">
+         <h3>Login</h3>
+         <p><code>POST /api/auth/login</code></p>
+         <p>request body</p>
+         <ul>
+           <li>username<code>String</code></li>
+           <li>password<code>String</code></li>
+         </ul>
+       </form>
+
+       <form action="/api/users" method="post">
+         <h3>Logout</h3>
+         <p><code>POST /api/auth/logout</code></p>
+       </form>
+
+       <form action="/api/users" method="post">
+        <h3>Register</h3>
+        <p><code>POST /api/auth/register</code></p>
+        <p>request body</p>
+        <ul>
+          <li>firstName<code>String</code></li>
+          <li>lastName<code>String</code></li>
+          <li>username<code>String</code></li>
+          <li>password<code>String</code></li>
+        </ul>
+      </form>
+ </div>
+
+
+    <div class="container">
+         <h1>Posts</h1>
+         <form action="/api/users" method="post">
+          <h3>get timeline Posts</h3>
+          <p><code>GET /api/post</code></p>
+
+        </form>
+
+        <form action="/api/users" method="post">
+          <h3>like a post</h3>
+          <p><code>POST /api/post/:postId/like</code></p>
+        </form>
+
+        <form action="/api/users" method="post">
+            <h3>new post</h3>
+            <p><code>POST /api/post</code></p>
+            <p>request body</p>
+            <ul>
+              <li>title <code>String</code></li>
+              <li>detail <code>String</code></li>
+              <li>Pictures <code>[String]</code></li>
+            </ul>
+          </form>
+          <form action="/api/users" method="post">
+            <h3>Delete a post</h3>
+            <p><code>DELETE /api/post:postId</code></p>
+          </form>
+          <form action="/api/users" method="post">
+            <h3>Update a post</h3>
+            <p><code>PUT /api/post:postId</code></p>
+            <p>request body</p>
+            <ul>
+              <li>title <code>String</code></li>
+              <li>detail <code>String</code></li>
+              <li>Pictures <code>[String]</code></li>
+            </ul>
+          </form>
+        
+    </div>
+
+
+    <div class="container">
+      <h1>User Account</h1>
+
+      <form id="exercise-form" method="post">
+        <h3>GET user</h3>
+        <p><code>GET /api/user?username='username'</code></p>
+      </form>
+
+      
+      <form action="/api/users" method="post">
+        <h3>follow/unFollow a User</h3>
+        <p><code>POST /api/post/:postId/follow</code></p>
+      </form>
+
+      <form id="exercise-form" method="post">
+        <h3>Delete User Account</h3>
+        <p><code>DELETE /api/user/:userId</code></p>
+      </form>
+
+      <form id="exercise-form" method="post">
+        <h3>Update User Account</h3>
+        <p><code>PUT /api/user/:userId</code></p>
+        <p>request body</p>
+        <ul>
+          <li>username<code>String</code></li>
+          <li>password<code>String</code></li>
+        </ul>
+      </form>
+
+   
+  
+    </div>
+  
+    <script>
+      const exerciseForm = document.getElementById("exercise-form");
+
+      exerciseForm.addEventListener("submit", () => {
+        const userId = document.getElementById("uid").value;
+        exerciseForm.action = `/api/users/${userId}/exercises`;
+
+        exerciseForm.submit();
+      });
+    </script>
+
+<div style="padding: 1%; display: flex; justify-content: center; margin-top: 4%; background-color: #87D37C; ">
+  <h6 style="color: black; font-size: 12px">Developed by <strong> <a target="_blank" style="color: black;" href="https://github.com/yohanes44">  Yohanes Debebe</a></strong></h6>
+</div>
+  </body>
+
+
+</html>
